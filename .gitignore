@@ -3,3 +3,4 @@
 *.tfstate
 *.backup
 *.tmp
+.DS_Store
