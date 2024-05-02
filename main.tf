@@ -2,8 +2,9 @@ data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "terraform_bucket" {
     # This is a bucket to store terraform state files
-    bucket      = "${var.base_name}-terraform-state-bucket"
-    tags        = merge({App = "Terraform ${var.base_name}"}, var.main_tags)
+    bucket        = "${var.base_name}-terraform-state-bucket"
+    force_destroy = true
+    tags          = merge({App = "Terraform ${var.base_name}"}, var.main_tags)
 }
 
 resource "aws_s3_bucket_versioning" "terraform_versioning" {
